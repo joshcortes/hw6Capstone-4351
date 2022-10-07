@@ -1,0 +1,11 @@
+body{
+    background-color: lightslategray;
+    font-family: Arial;
+    font-size: 40px;
+}
+ol li{
+    font-size: 24;
+}
+ol .fave{
+    color: green;
+}
