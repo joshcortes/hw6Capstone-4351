@@ -3,6 +3,10 @@ body{
     font-family: Arial;
     font-size: 40px;
 }
+input{
+    width: 180px;
+    height: 50px;
+}
 ol li{
     font-size: 24;
 }
