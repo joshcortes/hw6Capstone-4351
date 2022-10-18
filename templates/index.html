@@ -9,6 +9,43 @@
 </head>
 <body>
     <h1>Eric's Favorite Books</h1>
+    <div class="search-bar">
+        <form action="search.html" method="GET">
+            <label for="Search" >Search Your Book</label>
+            <input type="text" placeholder="Enter the name of the book!">
+            <button type="submit">submit</button>
+    </form>
+    </div>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+var api_key = "AIzaSyDNWM1nYm-SZPUhpCCd5Ovn0Zlyw_EGyjQ";
+$.ajax({
+    url: 'https://www.googleapis.com/books/v1/volumes?q=search-terms',
+    type: 'GET',
+    dataType: "json",
+    headers: {
+        'Authorization' : 'Bearer ' + api_key
+    },
+    success: function(data) {
+        console.log(data);
+        $.each(data,function(i,item){
+           //var len = item.items.length;
+           //for(var i=0;i < len;i++){}
+           $.each(item.items,function(i,tmp){
+              console.log(tmp.images[0].url);
+
+              $(".img1").append("<img src='"+tmp.images[0].url+"' />");
+              $(".img2").append("<img src='"+tmp.images[1].url+"' />");
+              $(".img3").append("<img src='"+tmp.images[2].url+"' />");
+           });
+        });
+    }
+});
+</script>
     <ol>
         {%for i in range(0, length)%}
             <div style="display:grid; grid-template-columns:2fr 2fr; column-gap:100px;">
