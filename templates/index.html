@@ -13,8 +13,12 @@
     <div class="search-bar">
         <form action="/" method="GET">
             <label for="Search" >Search Your Book</label>
-            <input type="text" placeholder="Enter the name of the book!" name="title">
+            <input type="title" placeholder="Enter the name of the book!" name="title">
             <button type="submit" value="submit">submit</button>
+    </form>
+    <form method="POST" action="/">
+        <input type="textbook" name="add_new"/>
+        <input type="submit" value="Add a book once searched"/>
     </form>
     </div>
     
@@ -36,5 +40,11 @@
             </div>
         {%endfor%} 
     </ol>
+    <ol>
+        {%for i in range(num_uploads)%}
+            <li><b>{{uploads[i].title}}</b>; {{uploads[i].thumbnail}}; </li>
+            <button onClick="deleteBook('{{uploads[i].title}}')">Delete</button>
+        {%endfor%}
+        </ol>
 </body>
 </html>
